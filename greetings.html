@@ -100,7 +100,7 @@
   <script>
     function dispalyGreetings(today) {
       let hrs = today.getHours();
-      let name = "";
+      let name = "Harsh";
       let greet = "";
       if (hrs < 12) greet = 'Good Morning ' + name;
       else if (hrs >= 12 && hrs <= 17) greet = 'Good Afternoon ' + name;
@@ -150,7 +150,7 @@
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
       const isDark = document.body.classList.contains('dark-mode');
-      document.getElementById("modeToggle").innerText = isDark ? "☀️" : "🌙";
+      document.getElementById("modeToggle").innerText = isDark ? "☼" : "☽";
     }
 
     dispalyWidget();

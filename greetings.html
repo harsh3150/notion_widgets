@@ -1,147 +1,161 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greetings</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Greetings</title>
+  <style>
+    body {
+      font-variant-caps: all-petite-caps;
+      background-color: #ffffff;
+      color: #000000;
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-    <style>
-        body {
-            font-variant-caps: all-petite-caps;
-            background-color: #ffffff;
-            color: #000000;
-            transition: background-color 0.3s, color 0.3s;
-        }
+    .dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
 
-        .dark-mode {
-            background-color: #121212;
-            color: #ffffff;
-        }
+    .widget {
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      max-width: 95%;
+      margin: auto;
+      border: 3px solid currentColor;
+      border-radius: 5px;
+      box-shadow: 2px 2px 1px 0px currentColor;
+    }
 
-        .widget {
-            padding: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            max-width: 95%;
-            margin: auto;
-            border: 3px solid currentColor;
-            border-radius: 5px;
-            box-shadow: 2px 2px 1px 0px currentColor;
-        }
+    .greet {
+      font-size: 3em;
+    }
 
-        .greet {
-            font-size: 3em;
-        }
+    .date,
+    .clock {
+      font-family: monospace;
+      font-size: 2em;
+    }
 
-        .date,
-        .clock {
-            font-family: monospace;
-            font-size: 2em;
-        }
+    .time {
+      display: inline-block;
+      min-width: 20px;
+    }
 
-        .time {
-            display: inline-block;
-            min-width: 20px;
-        }
+    .colon {
+      font-size: 1em;
+      display: inline-block;
+    }
 
-        .colon {
-            font-size: 1em;
-            display: inline-block;
-        }
+    .toggle-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5em;
+      cursor: pointer;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s, color 0.3s;
+      z-index: 999;
+    }
 
-        .toggle-button {
-            margin-top: 20px;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 5px;
-            background-color: #000;
-            color: #fff;
-            cursor: pointer;
-            font-size: 1em;
-        }
+    .dark-mode .toggle-button {
+      background-color: #fff;
+      color: #000;
+    }
 
-        .dark-mode .toggle-button {
-            background-color: #fff;
-            color: #000;
-        }
-    </style>
+    .toggle-button:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
+  <div class="container">
     <div class="widget">
-        <div class="greet" id="greet"></div>
-        <div class="date" id="date"></div>
-        <div class="clock">
-            <div class="time" id="hour"></div>
-            <div class="colon">:</div>
-            <div class="time" id="min"></div>
-            <div class="colon">:</div>
-            <div class="time" id="sec"></div>
-        </div>
-        <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+      <div class="greet" id="greet"></div>
+      <div class="date" id="date"></div>
+      <div class="clock">
+        <div class="time" id="hour"></div>
+        <div class="colon">:</div>
+        <div class="time" id="min"></div>
+        <div class="colon">:</div>
+        <div class="time" id="sec"></div>
+      </div>
     </div>
-</div>
+  </div>
 
-<script>
+  <button class="toggle-button" id="modeToggle" onclick="toggleDarkMode()">🌙</button>
+
+  <script>
     function dispalyGreetings(today) {
-        let hrs = today.getHours();
-        let name = "";
-        let greet = "";
-        if (hrs < 12) greet = 'Good Morning ' + name;
-        else if (hrs >= 12 && hrs <= 17) greet = 'Good Afternoon ' + name;
-        else greet = 'Good Evening ' + name;
-        document.getElementById('greet').innerHTML = greet;
+      let hrs = today.getHours();
+      let name = "";
+      let greet = "";
+      if (hrs < 12) greet = 'Good Morning ' + name;
+      else if (hrs >= 12 && hrs <= 17) greet = 'Good Afternoon ' + name;
+      else greet = 'Good Evening ' + name;
+      document.getElementById('greet').innerHTML = greet;
     }
 
     function dispalyDate(today) {
-        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"];
-        let dayName = days[today.getDay()];
-        let monthName = monthNames[today.getMonth()];
-        let date = today.getDate();
-        let year = today.getFullYear();
-        document.getElementById('date').innerHTML = `${dayName}, ${monthName} ${date} ${year}`;
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
+      let dayName = days[today.getDay()];
+      let monthName = monthNames[today.getMonth()];
+      let date = today.getDate();
+      let year = today.getFullYear();
+      document.getElementById('date').innerHTML = `${dayName}, ${monthName} ${date} ${year}`;
     }
 
     function dispalyClock(today) {
-        let hour = padZeros(twelveHour(today.getHours()));
-        let minutes = padZeros(today.getMinutes());
-        let seconds = padZeros(today.getSeconds());
-        seconds += (today.getHours() >= 12) ? " pm" : " am";
-        document.getElementById('hour').innerHTML = hour;
-        document.getElementById('min').innerHTML = minutes;
-        document.getElementById('sec').innerHTML = seconds;
+      let hour = padZeros(twelveHour(today.getHours()));
+      let minutes = padZeros(today.getMinutes());
+      let seconds = padZeros(today.getSeconds());
+      seconds += (today.getHours() >= 12) ? " pm" : " am";
+      document.getElementById('hour').innerHTML = hour;
+      document.getElementById('min').innerHTML = minutes;
+      document.getElementById('sec').innerHTML = seconds;
     }
 
     function twelveHour(hour) {
-        if (hour > 12) return hour - 12;
-        if (hour === 0) return 12;
-        return hour;
+      if (hour > 12) return hour - 12;
+      if (hour === 0) return 12;
+      return hour;
     }
 
     function padZeros(num) {
-        return num < 10 ? '0' + num : num;
+      return num < 10 ? '0' + num : num;
     }
 
     function dispalyWidget() {
-        let today = new Date();
-        dispalyGreetings(today);
-        dispalyDate(today);
-        dispalyClock(today);
-        setTimeout(dispalyWidget, 500);
+      let today = new Date();
+      dispalyGreetings(today);
+      dispalyDate(today);
+      dispalyClock(today);
+      setTimeout(dispalyWidget, 500);
     }
 
     function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      document.getElementById("modeToggle").innerText = isDark ? "☀️" : "🌙";
     }
 
     dispalyWidget();
-</script>
+  </script>
 
 </body>
 </html>

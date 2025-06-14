@@ -18,6 +18,7 @@
     }
 
     .widget {
+      position: relative;
       padding: 5px;
       display: flex;
       justify-content: center;
@@ -51,23 +52,22 @@
     }
 
     .toggle-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 40px;
+      height: 40px;
       background-color: #000;
       color: #fff;
       border: none;
       border-radius: 50%;
-      font-size: 1.5em;
+      font-size: 1.2em;
       cursor: pointer;
       box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
       transition: background-color 0.3s, color 0.3s;
-      z-index: 999;
     }
 
     .dark-mode .toggle-button {
@@ -76,7 +76,7 @@
     }
 
     .toggle-button:hover {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -84,6 +84,8 @@
 
   <div class="container">
     <div class="widget">
+      <button class="toggle-button" id="modeToggle" onclick="toggleDarkMode()">🌙</button>
+
       <div class="greet" id="greet"></div>
       <div class="date" id="date"></div>
       <div class="clock">
@@ -95,8 +97,6 @@
       </div>
     </div>
   </div>
-
-  <button class="toggle-button" id="modeToggle" onclick="toggleDarkMode()">🌙</button>
 
   <script>
     function dispalyGreetings(today) {

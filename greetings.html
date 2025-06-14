@@ -7,8 +7,8 @@
   <style>
     body {
       font-variant-caps: all-petite-caps;
-      background-color: #ffffff;
-      color: #000000;
+      background-color: #121212; /* Default dark */
+      color: #ffffff;
       transition: background-color 0.3s, color 0.3s;
     }
 
@@ -17,9 +17,20 @@
       color: #ffffff;
     }
 
+    .light-mode {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .widget {
       position: relative;
-      padding: 5px;
+      padding: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -32,13 +43,15 @@
     }
 
     .greet {
-      font-size: 3em;
+      font-size: 2em;
+      text-align: center;
     }
 
     .date,
     .clock {
       font-family: monospace;
-      font-size: 2em;
+      font-size: 1.5em;
+      text-align: center;
     }
 
     .time {
@@ -52,16 +65,23 @@
     }
 
     .toggle-button {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      width: 40px;
-      height: 40px;
+      margin-top: 15px;
+      display: flex;
+      justify-content: flex-end;
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .toggle-button button {
+      width: 36px;
+      height: 36px;
+      padding: 6px;
       background-color: #000;
       color: #fff;
       border: none;
       border-radius: 50%;
-      font-size: 1.2em;
+      font-size: 1em;
       cursor: pointer;
       box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
       display: flex;
@@ -70,17 +90,18 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    .dark-mode .toggle-button {
+    .dark-mode .toggle-button button {
       background-color: #fff;
       color: #000;
     }
 
-    .toggle-button:hover {
+    .toggle-button button:hover {
       transform: scale(1.1);
     }
+
   </style>
 </head>
-<body>
+<body class="dark-mode">
 
   <div class="container">
     <div class="widget">
@@ -93,7 +114,10 @@
         <div class="colon">:</div>
         <div class="time" id="sec"></div>
       </div>
-      <button class="toggle-button" id="modeToggle" onclick="toggleDarkMode()">🌙</button>
+    </div>
+
+    <div class="toggle-button">
+      <button id="modeToggle" onclick="toggleDarkMode()">☼</button>
     </div>
   </div>
 
@@ -148,9 +172,18 @@
     }
 
     function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      document.getElementById("modeToggle").innerText = isDark ? "☼" : "☽";
+      const body = document.body;
+      const button = document.getElementById("modeToggle");
+
+      if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        button.innerText = "☽";
+      } else {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        button.innerText = "☼";
+      }
     }
 
     dispalyWidget();

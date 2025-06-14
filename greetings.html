@@ -7,40 +7,36 @@
     <title>Greetings</title>
 
     <style>
-
-
-        body{
+        body {
             font-variant-caps: all-petite-caps;
+            background-color: #ffffff;
+            color: #000000;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
         }
 
         .widget {
-            padding: 5px 5px ;
-            color: #000000;
+            padding: 5px;
             display: flex;
-            justify-content:center;
-            align-items:center;
+            justify-content: center;
+            align-items: center;
             flex-direction: column;
             max-width: 95%;
             margin: auto;
-            border: 3px solid #000000;
+            border: 3px solid currentColor;
             border-radius: 5px;
-            box-shadow: 2px 2px 1px 0px #000000;
-
+            box-shadow: 2px 2px 1px 0px currentColor;
         }
 
-           
-        .greet{
+        .greet {
             font-size: 3em;
         }
 
-        .date {
-      
-            font-family: monospace;
-            font-size: 2em;
-        }
-
+        .date,
         .clock {
             font-family: monospace;
             font-size: 2em;
@@ -56,116 +52,95 @@
             display: inline-block;
         }
 
-     
+        .toggle-button {
+            margin-top: 20px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1em;
+        }
 
-
-
-
+        .dark-mode .toggle-button {
+            background-color: #fff;
+            color: #000;
+        }
     </style>
 </head>
 <body>
 
-
-
-
-<div class="container>">
+<div class="container">
     <div class="widget">
-
-            <div class="greet" id="greet"></div>
-
-                <div class="date" id="date"></div>
-                <div class="clock">
-                    <div class="time" id="hour"></div>
-                    <div class="colon">:</div>
-                    <div class="time" id="min"></div>
-                    <div class="colon">:</div>
-                    <div class="time" id="sec"></div>
-                </div>
-           
-
-        
-
+        <div class="greet" id="greet"></div>
+        <div class="date" id="date"></div>
+        <div class="clock">
+            <div class="time" id="hour"></div>
+            <div class="colon">:</div>
+            <div class="time" id="min"></div>
+            <div class="colon">:</div>
+            <div class="time" id="sec"></div>
+        </div>
+        <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </div>
 </div>
-        
-
-
 
 <script>
-
-function dispalyGreetings(today){
-        hrs = today.getHours();
-        name="Harsh"
-        if (hrs < 12)
-            greet = 'Good Morning  '+name;
-        else if (hrs >= 12 && hrs <= 17)
-            greet = 'Good Afternoon '+name;
-        else if (hrs >= 17 && hrs <= 24)
-            greet = 'Good Evening  '+name;
+    function dispalyGreetings(today) {
+        let hrs = today.getHours();
+        let name = "";
+        let greet = "";
+        if (hrs < 12) greet = 'Good Morning ' + name;
+        else if (hrs >= 12 && hrs <= 17) greet = 'Good Afternoon ' + name;
+        else greet = 'Good Evening ' + name;
         document.getElementById('greet').innerHTML = greet;
-
     }
 
-    function dispalyDate(today) {  
-       
+    function dispalyDate(today) {
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
-
-        var dayName = days[today.getDay()];
-        var monthName = monthNames[today.getMonth()];
-        var date = today.getDate();
-        var year = today.getFullYear();
-        document.getElementById('date').innerHTML =dayName+", "+monthName+" "+date+" "+year;
-
+            "July", "August", "September", "October", "November", "December"];
+        let dayName = days[today.getDay()];
+        let monthName = monthNames[today.getMonth()];
+        let date = today.getDate();
+        let year = today.getFullYear();
+        document.getElementById('date').innerHTML = `${dayName}, ${monthName} ${date} ${year}`;
     }
 
-
     function dispalyClock(today) {
-
-        var hour = padZeros(twelveHour(today.getHours()));
-        var minutes = padZeros(today.getMinutes());
-        var seconds = padZeros(today.getSeconds());
-       
-        if(today.getHours() >=12){
-            seconds+=" pm"
-        }
-        else{
-            seconds+=" am"
-        }
-       
+        let hour = padZeros(twelveHour(today.getHours()));
+        let minutes = padZeros(today.getMinutes());
+        let seconds = padZeros(today.getSeconds());
+        seconds += (today.getHours() >= 12) ? " pm" : " am";
         document.getElementById('hour').innerHTML = hour;
         document.getElementById('min').innerHTML = minutes;
         document.getElementById('sec').innerHTML = seconds;
     }
 
     function twelveHour(hour) {
-        if (hour > 12) {
-            return hour -= 12
-        } else if (hour === 0) {
-            return hour = 12;
-        } else {
-            return hour
-        }
+        if (hour > 12) return hour - 12;
+        if (hour === 0) return 12;
+        return hour;
     }
+
     function padZeros(num) {
-        if (num < 10) {
-            num = '0' + num
-        };
-        return num;
+        return num < 10 ? '0' + num : num;
     }
 
     function dispalyWidget() {
-        var today = new Date();
+        let today = new Date();
         dispalyGreetings(today);
         dispalyDate(today);
         dispalyClock(today);
         setTimeout(dispalyWidget, 500);
     }
 
-    dispalyWidget()
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+    }
 
+    dispalyWidget();
 </script>
 
 </body>

@@ -100,33 +100,6 @@
       transform: scale(1.1);
     }
 
-    .robot-track {
-      position: relative;
-      height: 20px;
-      width: 100%;
-      overflow: hidden;
-      margin-top: 0;
-    }
-    
-    .robot {
-      position: absolute;
-      bottom: 0;
-      left: -50px;
-      font-size: 20px;
-      transform: scaleY(-1); /* upside down */
-      animation: run-robot 6s linear infinite;
-    }
-    
-    @keyframes run-robot {
-      0% {
-        left: -50px;
-      }
-      100% {
-        left: 100%;
-      }
-    }
-
-
   </style>
 </head>
 <body class="dark-mode">
@@ -143,19 +116,6 @@
         <div class="time" id="sec"></div>
       </div>
     </div>
-
-    <div class="robot-track">
-      <div class="robot">🤖</div>
-    </div>
-
-    <div class="toggle-button">
-      <button id="modeToggle" onclick="toggleDarkMode()">☼</button>
-    </div>
-
-    <div class="robot-track">
-      <div class="robot">🤖</div>
-    </div>
-
 
     <div class="toggle-button">
       <button id="modeToggle" onclick="toggleDarkMode()">☼</button>

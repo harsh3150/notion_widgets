@@ -4,37 +4,86 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Quote</title>
+
   <style>
-    .widget {
-      padding: 5px;
+    body {
+      font-variant-caps: petite-caps;
+      background-color: #ffffff;
       color: #000000;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    .widget {
+      position: relative;
+      padding: 5px;
       text-align: center;
       max-width: 95%;
       margin: auto;
-      font-variant-caps: petite-caps;
       font-size: 2em;
+      min-height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    div {
-      width: 95%;
-      min-height: 100px;
+    .widget::before {
+      content: "";
+      position: absolute;
+      inset: 0;
       background:
-        linear-gradient(to right, black 4px, transparent 4px) 0 0,
-        linear-gradient(to right, black 4px, transparent 4px) 0 100%,
-        linear-gradient(to left, black 4px, transparent 4px) 100% 0,
-        linear-gradient(to left, black 4px, transparent 4px) 100% 100%,
-        linear-gradient(to bottom, black 4px, transparent 4px) 0 0,
-        linear-gradient(to bottom, black 4px, transparent 4px) 100% 0,
-        linear-gradient(to top, black 4px, transparent 4px) 0 100%,
-        linear-gradient(to top, black 4px, transparent 4px) 100% 100%;
+        linear-gradient(to right, currentColor 4px, transparent 4px) 0 0,
+        linear-gradient(to right, currentColor 4px, transparent 4px) 0 100%,
+        linear-gradient(to left, currentColor 4px, transparent 4px) 100% 0,
+        linear-gradient(to left, currentColor 4px, transparent 4px) 100% 100%,
+        linear-gradient(to bottom, currentColor 4px, transparent 4px) 0 0,
+        linear-gradient(to bottom, currentColor 4px, transparent 4px) 100% 0,
+        linear-gradient(to top, currentColor 4px, transparent 4px) 0 100%,
+        linear-gradient(to top, currentColor 4px, transparent 4px) 100% 100%;
       background-repeat: no-repeat;
       background-size: 20px 20px;
+      pointer-events: none;
+    }
+
+    .toggle-button {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 40px;
+      height: 40px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2em;
+      cursor: pointer;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-mode .toggle-button {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .toggle-button:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
 
-  <div class="widget" id="widget">Loading quote...</div>
+  <div class="widget" id="widget">
+    <span id="quoteText">Loading quote...</span>
+    <button class="toggle-button" id="modeToggle" onclick="toggleDarkMode()">🌙</button>
+  </div>
 
   <script>
     const INTERVAL = 86400000; // 24 hours
@@ -45,20 +94,21 @@
         const quotes = await response.json();
         return quotes;
       } catch (error) {
-        document.getElementById('widget').innerText = 'Failed to load quotes.';
+        document.getElementById('quoteText').innerText = 'Failed to load quotes.';
         console.error('Error loading quotes.json:', error);
         return [];
       }
     }
 
-    async function displayWidget() {
+    async function displayQuotes() {
       const quotes = await loadQuotes();
       if (quotes.length === 0) return;
 
       let index = 0;
+      const quoteElement = document.getElementById('quoteText');
 
       function updateQuote() {
-        document.getElementById('widget').innerText = quotes[index];
+        quoteElement.innerText = quotes[index];
         index = (index + 1) % quotes.length;
         setTimeout(updateQuote, INTERVAL);
       }
@@ -66,7 +116,13 @@
       updateQuote();
     }
 
-    displayWidget();
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      document.getElementById("modeToggle").innerText = isDark ? "☀️" : "🌙";
+    }
+
+    displayQuotes();
   </script>
 
 </body>

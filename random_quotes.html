@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+
+    <style>
+
+        .widget {
+            padding: 5px 5px ;
+            color: #000000;
+            text-align: center;
+                max-width: 95%;
+            margin: auto;
+            font-variant-caps: petite-caps;
+            font-size: 2em;
+
+        }
+
+        div {
+             width: 95%;
+             min-height: 100px;
+
+            background:
+                linear-gradient(to right, black 4px, transparent 4px) 0 0,
+                linear-gradient(to right, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 100%,
+                linear-gradient(to bottom, black 4px, transparent 4px) 0 0,
+                linear-gradient(to bottom, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to top, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to top, black 4px, transparent 4px) 100% 100%;
+
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+}
+
+     
+    </style>
+</head>
+<body>
+
+    <div class="widget" id="widget"></div>
+
+
+<script>
+
+quotes=[
+"Learning, like success, is anything but a linear process",
+"I am in competition with no one. I have no desire to play the game of being better than anyone. I am simply trying to be better than the person I was yesterday.",
+"If you want to be interesting, you have to be interested.",
+"It's supposed to be hard. If it were easy, everyone would do it.",
+"Don’t worry if you’re not where you want to be yet. Great things take time. ",
+"If it's important you'll find a way. If it's not, you'll find an excuse.",
+"Most people overestimate what they can do in one year and underestimate what they can do in ten years.",
+"A goal without a plan is just a wish.",
+"change your 24 hours and you'll change your life",
+"Stop thinking you are not qualified, not fit, or not experienced enough,",
+"Growth takes place when you start doing stuff you are not qualified to do.",
+"Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.",
+"Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.",
+
+];
+
+const INTERVAL = 86400000;
+
+function dispalyQuote(){
+
+    document.getElementById('widget').innerHTML =quotes[0];
+    quotes.forEach((quote, i) => {
+        setTimeout(() => {
+            document.getElementById('widget').innerHTML =quote;
+        }, i * INTERVAL);  
+    });
+    }
+
+    function dispalyWidget() {
+        dispalyQuote();
+        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+    }
+    dispalyWidget()
+
+</script>
+
+</body>
+</html>
+
+“Success is not final, failure is not fatal: It is the courage to continue that counts.” – Winston Churchill
+"The only way to do great work is to love what you do." – Steve Jobs
+“Don’t watch the clock; do what it does. Keep going.” – Sam Levenson
+“The future belongs to those who believe in the beauty of their dreams.” – Eleanor Roosevelt
+"You are never too old to set another goal or to dream a new dream." – C.S. Lewis
+“It does not matter how slowly you go as long as you do not stop.” – Confucius
+"Opportunities don't happen, you create them." – Chris Grosser
+“What lies behind us and what lies before us are tiny matters compared to what lies within us.” – Ralph Waldo Emerson
+“Your limitation—it's only your imagination.” – Unknown
+“The harder you work for something, the greater you’ll feel when you achieve it.” – Unknown
+“The only limit to our realization of tomorrow is our doubts of today.” – Franklin D. Roosevelt
+"Success is not how high you have climbed, but how you make a positive difference to the world." – Roy T. Bennett
+“Dream big and dare to fail.” – Norman Vaughan
+"Don’t be pushed around by the fears in your mind. Be led by the dreams in your heart." – Roy T. Bennett
+“There are no shortcuts to any place worth going.” – Beverly Sills
+“It always seems impossible until it’s done.” – Nelson Mandela
+“The only way to achieve the impossible is to believe it is possible.” – Charles Kingsleigh
+“Push yourself, because no one else is going to do it for you.” – Unknown
+"Success is the sum of small efforts, repeated day in and day out." – Robert Collier
+“Believe you can and you’re halfway there.” – Theodore Roosevelt
+"Hard work beats talent when talent doesn't work hard." – Tim Notke
+“In the middle of difficulty lies opportunity.” – Albert Einstein
+"If you can dream it, you can do it." – Walt Disney
+"The road to success is always under construction." – Lily Tomlin
+“Success usually comes to those who are too busy to be looking for it.” – Henry David Thoreau
+“Great things never come from comfort zones.” – Unknown
+“We may encounter many defeats, but we must not be defeated.” – Maya Angelou
+"Do what you can with all you have, wherever you are." – Theodore Roosevelt
+“Everything you’ve ever wanted is on the other side of fear.” – George Addair
+“Hardships often prepare ordinary people for an extraordinary destiny.” – C.S. Lewis
+"Success is not the key to happiness. Happiness is the key to success." – Albert Schweitzer
+"The best way to predict the future is to create it." – Peter Drucker
+"The distance between who I am and who I want to be is only separated by what I do." – Unknown
+"You don’t have to be great to start, but you have to start to be great." – Zig Ziglar
+"Don't wait. The time will never be just right." – Napoleon Hill
+"Failure will never overtake me if my determination to succeed is strong enough." – Og Mandino
+"Success is the sum of small efforts, repeated day in and day out." – Robert Collier
+"The way to get started is to quit talking and begin doing." – Walt Disney
+“The road to success is dotted with many tempting parking spaces.” – Will Rogers
+“A year from now you may wish you had started today.” – Karen Lamb
+"Do what you love, and you'll never work a day in your life." – Unknown
+“Success is the result of preparation, hard work, and learning from failure.” – Colin Powell
+"Work until you no longer have to introduce yourself." – Unknown
+"The key to success is to focus on goals, not obstacles." – Unknown
+“Motivation is what gets you started. Habit is what keeps you going.” – Jim Ryun
+"Nothing in the world can take the place of Persistence." – Calvin Coolidge
+"You don’t have to be perfect to succeed, you just have to keep going." – Unknown
+“You don’t find the time for important things—you make it.” – Unknown
+"Be stronger than your strongest excuse." – Unknown
+"You get what you work for, not what you wish for." – Unknown
+"I find that the harder I work, the more luck I seem to have." – Thomas Jefferson
+“Success is not the absence of failure; it’s the persistence through failure.” – Aisha Tyler
+"Don't stop when you're tired, stop when you're done." – Unknown
+"The difference between try and triumph is just a little umph!" – Marvin Phillips
+"Success is achieved and maintained by those who try and keep trying." – W. Clement Stone
+"One of the most important keys to success is having the discipline to keep going when everyone else gives up." – Unknown
+"Without commitment, you’ll never start. Without consistency, you’ll never finish." – Denzel Washington
+"A dream doesn’t become reality through magic; it takes sweat, determination and hard work." – Colin Powell
+“There are no shortcuts to success.” – Unknown
+"Don't aim for success if you want it; just do what you love and believe in, and it will come naturally." – David Frost
+"Success is walking from failure to failure with no loss of enthusiasm." – Winston Churchill
+"Take the risk or lose the chance." – Unknown
+"Go the extra mile. It’s never crowded." – Wayne Dyer
+“The only limit to your impact is your imagination and commitment.” – Tony Robbins
+“In order to succeed, we must first believe that we can.” – Nikos Kazantzakis
+"Doubt kills more dreams than failure ever will." – Suzy Kassem
+“Set your goals high, and don’t stop till you get there.” – Bo Jackson
+"If you're going through hell, keep going." – Winston Churchill
+"A goal is not always meant to be reached, it often serves simply as something to aim at." – Bruce Lee
+"Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle." – Christian D. Larson
+“Success doesn’t come from what you do occasionally, it comes from what you do consistently.” – Marie Forleo
+"You may have to fight a battle more than once to win it." – Margaret Thatcher
+"The best time to plant a tree was 20 years ago. The second best time is now." – Chinese Proverb
+“Don’t be afraid to give up the good to go for the great.” – John D. Rockefeller
+"Your dreams don’t work unless you do." – John C. Maxwell
+"Discipline is the bridge between goals and accomplishment." – Jim Rohn
+"Success doesn’t just come and find you. You have to go out and get it." – Unknown
+“Start where you are. Use what you have. Do what you can.” – Arthur Ashe
+"You don’t have to be great to get started, but you have to get started to be great." – Les Brown
+"Success is a journey, not a destination." – Arthur Ashe
+"If you can’t fly then run, if you can’t run then walk, if you can’t walk then crawl, but whatever you do you have to keep moving forward." – Martin Luther King Jr.
+"Small daily improvements over time lead to stunning results." – Robin Sharma
+“Success is a process, not a goal.” – Unknown
+"The only way to achieve the impossible is to believe it is possible." – Charles Kingsleigh
+“Success is not for the chosen few, it’s for the few who choose it.” – Unknown
+"You are capable of more than you know." – Glinda, The Wizard of Oz
+“A journey of a thousand miles begins with a single step.” – Lao Tzu
+"It’s not about being the best, it’s about being better than you were yesterday." – Unknown
+"When you feel like quitting, think about why you started." – Unknown
+"Success is liking yourself, liking what you do, and liking how you do it." – Maya Angelou
+"Success isn’t just about what you accomplish in your life; it’s about what you inspire others to do." – Unknown
+"Don’t limit your challenges. Challenge your limits." – Unknown
+"Success is how high you bounce when you hit bottom." – George S. Patton
+"Work hard in silence, let your success be your noise." – Frank Ocean
+"Success is not the key to happiness. Happiness is the key to success." – Albert Schweitzer
+“You miss 100% of the shots you don’t take.” – Wayne Gretzky
+"Success is not in what you have, but who you are." – Bo Bennett
+"It always seems impossible until it's done." – Nelson Mandela
+“Start where you are. Use what you have. Do what you can.” – Arthur Ashe
+"The only way to do great work is to love what you do." – Steve Jobs
+"Work hard, stay consistent, and be patient." – Unknown
+"Success is to be measured not so much by the position that one has reached in life as by the obstacles which he has overcome." – Booker T. Washington
+"The only place where success comes before work is in the dictionary." – Vidal Sassoon
+"Do what you can with all you have, wherever you are." – Theodore Roosevelt
+“Don’t wait for opportunity. Create it.” – Unknown
+"Everything you can imagine is real." – Pablo Picasso
+“Be the change that you wish to see in the world.” – Mahatma Gandhi
+"There’s no elevator to success; you have to take the stairs." – Unknown
+"Action is the foundational key to all success." – Pablo Picasso
+"The harder you work, the luckier you get." – Gary Player
+"Don't let yesterday take up too much of today." – Will Rogers
+“The journey of a thousand miles begins with one step.” – Lao Tzu
+"Opportunities are usually disguised as hard work, so most people don't recognize them." – Ann Landers
+"It does not matter how slowly you go as long as you do not stop." – Confucius
+"Your limitation—it's only your imagination." – Unknown
+“Make each day your masterpiece.” – John Wooden
+"Success comes from having dreams and working to make them happen." – Unknown
+“If you want to fly, you have to give up the things that weigh you down.” – Toni Morrison
+"The harder you work for something, the greater you’ll feel when you achieve it." – Unknown
+“Believe you can and you're halfway there.” – Theodore Roosevelt
+"The best preparation for tomorrow is doing your best today." – H. Jackson Brown Jr.
+"You don’t have to be great to start, but you have to start to be great." – Zig Ziglar
+"Small daily improvements over time lead to stunning results." – Robin Sharma
+“Success isn’t overnight. It’s when every day you get a little better than the day before.” – Unknown
+"What you get by achieving your goals is not as important as what you become by achieving your goals." – Zig Ziglar
+"It’s not about ideas. It’s about making ideas happen." – Scott Belsky
+“If you don’t build your dream, someone else will hire you to help them build theirs.” – Dhirubhai Ambani
+"Success is the sum of small efforts, repeated day in and day out." – Robert Collier
+"There is no substitute for hard work." – Thomas Edison
+"Don’t wish it were easier. Wish you were better." – Jim Rohn
+"Success usually comes to those who are too busy to be looking for it." – Henry David Thoreau
+"Success doesn’t just come and find you. You have to go out and get it." – Unknown
+"The road to success and the road to failure are almost exactly the same." – Colin R. Davis
+"Persistence guarantees that results are inevitable." – Paramahansa Yogananda
+"Success is not final, failure is not fatal: It is the courage to continue that counts." – Winston Churchill
+“Success is a process, not a goal.” – Unknown
+"The difference between try and triumph is just a little umph!" – Marvin Phillips
+"Don’t stop when you’re tired, stop when you’re done." – Unknown
+"The best way to get started is to quit talking and begin doing." – Walt Disney
+"Hard work beats talent when talent doesn't work hard." – Tim Notke
+"If you can dream it, you can do it." – Walt Disney
+“Success is the result of preparation, hard work, and learning from failure.” – Colin Powell
+"You don’t have to be perfect to succeed, you just have to keep going." – Unknown
+"Success is achieved and maintained by those who try and keep trying." – W. Clement Stone
+“Success is not for the chosen few, it’s for the few who choose it.” – Unknown
+"Success is the sum of small efforts, repeated day in and day out." – Robert Collier
+"Work hard in silence, let your success be your noise." – Frank Ocean
+"Hard work and persistence are the cornerstones of success." – Unknown
+“When you feel like quitting, think about why you started.” – Unknown
+"Nothing in the world can take the place of Persistence." – Calvin Coolidge
+"You are never too old to set another goal or to dream a new dream." – C.S. Lewis
+"You are capable of more than you know." – Glinda, The Wizard of Oz
+"Everything you’ve ever wanted is on the other side of fear." – George Addair
+“What we think, we become.” – Buddha
+"The future belongs to those who believe in the beauty of their dreams." – Eleanor Roosevelt
+“You don’t have to see the whole staircase, just take the first step.” – Martin Luther King Jr.
+"Great things never come from comfort zones." – Unknown
+"A goal without a plan is just a wish." – Antoine de Saint-Exupéry
+"Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle." – Christian D. Larson
+"The only limit to our realization of tomorrow is our doubts of today." – Franklin D. Roosevelt
+"Don't wait for the perfect moment. Take the moment and make it perfect." – Unknown
+"A year from now you may wish you had started today." – Karen Lamb
+"The way to get started is to quit talking and begin doing." – Walt Disney
+"Set your goals high, and don’t stop until you get there." – Bo Jackson
+"Success is not in what you have, but who you are." – Bo Bennett
+"Don’t let yesterday take up too much of today." – Will Rogers
+"Push yourself because no one else is going to do it for you." – Unknown
+"Start where you are. Use what you have. Do what you can." – Arthur Ashe
+"The only way to achieve the impossible is to believe it is possible." – Charles Kingsleigh
+“If you can dream it, you can do it.” – Walt Disney
+"If you’re going through hell, keep going." – Winston Churchill
+"Success is the sum of small efforts, repeated day in and day out." – Robert Collier
+"You don’t have to be great to get started, but you have to get started to be great." – Les Brown
+“Don’t watch the clock; do what it does. Keep going.” – Sam Levenson
+"In the middle of difficulty lies opportunity." – Albert Einstein
+"Success usually comes to those who are too busy to be looking for it." – Henry David Thoreau
+"Be stronger than your strongest excuse." – Unknown
+"The key to success is to focus on goals, not obstacles." – Unknown
+“Your dreams don’t work unless you do.” – John C. Maxwell
+"Success is walking from failure to failure with no loss of enthusiasm." – Winston Churchill
+"If you don't build your dream, someone else will hire you to help them build theirs." – Dhirubhai Ambani
+"The way to get started is to quit talking and begin doing." – Walt Disney
+"Success is a journey, not a destination." – Arthur Ashe
+"The road to success is always under construction." – Lily Tomlin
+"Success is not how high you have climbed, but how you make a positive difference to the world." – Roy T. Bennett
+"Keep going. Everything you need will come to you at the perfect time." – Unknown
+"Don't stop when you're tired. Stop when you're done." – Unknown
+“Start where you are. Use what you have. Do what you can.” – Arthur Ashe
+“Success doesn’t come from what you do occasionally, it comes from what you do consistently.” – Marie Forleo
+"The harder you work, the luckier you get." – Gary Player
+"The way to get started is to quit talking and begin doing." – Walt Disney
+"Act as if what you do makes a difference. It does." – William James
+"Success is the ability to go from one failure to another with no loss of enthusiasm." – Winston Churchill
+"Do what you love, and you’ll never work a day in your life." – Confucius
+"You can't cross the sea merely by standing and staring at the water." – Rabindranath Tagore
+"Success is not for the chosen few, it's for the few who choose it." – Unknown
+"Don’t watch the clock; do what it does. Keep going." – Sam Levenson
+"You will never have this day again, so make it count." – Unknown
+"It’s not whether you get knocked down, it’s whether you get up." – Vince Lombardi
+"Nothing will work unless you do." – Maya Angelou
+"Start where you are. Use what you have. Do what you can." – Arthur Ashe
+"The difference between who you are and who you want to be is what you do." – Unknown
+"If you want to achieve greatness stop asking for permission." – Unknown
+"Success is the sum of small efforts, repeated day in and day out." – Robert Collier
+"Life is 10% what happens to us and 90% how we react to it." – Charles R. Swindoll
+"Success is not in what you have, but who you are." – Bo Bennett
+"Don’t limit your challenges. Challenge your limits." – Unknown
+"Success is not final, failure is not fatal: It is the courage to continue that counts." – Winston Churchill
+"The best time to plant a tree was 20 years ago. The second best time is now." – Chinese Proverb
+"Perseverance is not a long race; it is many short races one after the other." – Walter Elliot
+"The secret to getting ahead is getting started." – Mark Twain
+"The only way to do great work is to love what you do." – Steve Jobs
+"It does not matter how slowly you go as long as you do not stop." – Confucius
+"Success is not the key to happiness. Happiness is the key to success." – Albert Schweitzer
+"When you feel like quitting, remember why you started." – Unknown
+"Challenges are what make life interesting and overcoming them is what makes life meaningful." – Joshua J. Marine
+"Success is walking from failure to failure with no loss of enthusiasm." – Winston Churchill
+"Success consists of going from failure to failure without loss of enthusiasm." – Winston Churchill
+"You can't change the direction of the wind, but you can adjust your sails." – Jimmy Dean
+"You don’t have to be great to get started, but you have to get started to be great." – Les Brown
+"Great things never come from comfort zones." – Unknown
+"The best way to predict the future is to create it." – Peter Drucker
+"Success is the result of preparation, hard work, and learning from failure." – Colin Powell
+"The difference between ordinary and extraordinary is that little extra." – Jimmy Johnson
+"Nothing in the world can take the place of Persistence." – Calvin Coolidge
+"The only limit to our realization of tomorrow is our doubts of today." – Franklin D. Roosevelt
+"Success doesn't just find you. You have to go out and get it." – Unknown
+"Strive not to be a success, but rather to be of value." – Albert Einstein
+"Don’t be afraid to give up the good to go for the great." – John D. Rockefeller
+"Don't stop when you're tired. Stop when you're done." – Unknown
+"The harder you work for something, the greater you’ll feel when you achieve it." – Unknown
+"The future depends on what we do in the present." – Mahatma Gandhi
+"The harder you work, the luckier you get." – Gary Player
+"Everything you can imagine is real." – Pablo Picasso
+"Dream big. Start small. Act now." – Robin Sharma
+"Success usually comes to those who are too busy to be looking for it." – Henry David Thoreau
+"The secret of getting ahead is getting started." – Mark Twain
+"If you want to be successful, you must be willing to do what others won’t." – Unknown
+"It always seems impossible until it’s done." – Nelson Mandela
+"I find that the harder I work, the more luck I seem to have." – Thomas Jefferson
+"I am not a product of my circumstances. I am a product of my decisions." – Stephen Covey
+"The only way to achieve the impossible is to believe it is possible." – Charles Kingsleigh
+"Success is what happens after you have survived all of your mistakes." – Anonymous
+"Life is not about waiting for the storm to pass; it's about learning to dance in the rain." – Unknown
+"The way to get started is to quit talking and begin doing." – Walt Disney
+"It’s not about ideas. It’s about making ideas happen." – Scott Belsky
+"Great things never come from comfort zones." – Unknown
+"Be willing to do what others won’t do to achieve what others won’t achieve." – Unknown
+"When everything seems to be going against you, remember that the airplane takes off against the wind, not with it." – Henry Ford
+"Success is not the key to happiness. Happiness is the key to success." – Albert Schweitzer
+"It always seems impossible until it’s done." – Nelson Mandela
+"Success is not for the chosen few, it’s for the few who choose it." – Unknown
+"Don’t wait. The time will never be just right." – Napoleon Hill
+"You only fail when you stop trying." – Unknown
+"Success doesn’t come from what you do occasionally, it comes from what you do consistently." – Marie Forleo
+"What you get by achieving your goals is not as important as what you become by achieving your goals." – Zig Ziglar
+"Success is how high you bounce when you hit bottom." – George S. Patton
+"You don't have to be great to get started, but you have to get started to be great." – Les Brown
+"The key to success is to focus on goals, not obstacles." – Unknown
+"Your dreams don’t work unless you do." – John C. Maxwell
+"Life is 10% what happens to us and 90% how we react to it." – Charles R. Swindoll
+"Nothing is impossible, the word itself says ‘I’m possible’!" – Audrey Hepburn
+"The future belongs to those who believe in the beauty of their dreams." – Eleanor Roosevelt
+"Success is the sum of small efforts, repeated day in and day out." – Robert Collier
+"Success is the result of hard work, persistence, and learning from failure." – Unknown
+"You don’t have to be great to start, but you have to start to be great." – Les Brown
+"Don’t be afraid to give up the good to go for the great." – John D. Rockefeller
+"Don’t let yesterday take up too much of today." – Will Rogers
+"Do one thing every day that scares you." – Eleanor Roosevelt
+"Challenges are what make life interesting and overcoming them is what makes life meaningful." – Joshua J. Marine
+"The secret of success is constancy to purpose." – Benjamin Disraeli
+"Success is not in what you have, but who you are." – Bo Bennett
+"Perseverance is not a long race; it is many short races one after the other." – Walter Elliot
+"The key to success is to start before you’re ready." – Marie Forleo
+"Success consists of going from failure to failure without loss of enthusiasm." – Winston Churchill
+"I find that the harder I work, the more luck I seem to have." – Thomas Jefferson
+"A goal without a plan is just a wish." – Antoine de Saint-Exupéry
+"Success is not the key to happiness. Happiness is the key to success." – Albert Schweitzer
+"Your limitation—it’s only your imagination." – Unknown
+"Don’t stop when you’re tired. Stop when you’re done." – Unknown
+"Don’t limit your challenges. Challenge your limits." – Unknown
+"The road to success is always under construction." – Lily Tomlin
+"Success is the sum of small efforts, repeated day in and day out." – Robert Collier
+"Success is the result of preparation, hard work, and learning from failure." – Colin Powell
+"Success is how high you bounce when you hit bottom." – George S. Patton
+"Success comes from having dreams and working to make them happen." – Unknown
+"Success is the result of preparation, hard work, and learning from failure." – Colin Powell
+"Keep going. Everything you need will come to you at the perfect time." – Unknown
+"Success is the sum of small efforts, repeated day in and day out." – Robert Collier
+"Your dreams don’t work unless you do." – John C. Maxwell
+"The future belongs to those who believe in the beauty of their dreams." – Eleanor Roosevelt
+"Success is not final, failure is not fatal: It is the courage to continue that counts." – Winston Churchill
+"What you get by achieving your goals is not as important as what you become by achieving your goals." – Zig Ziglar
+"The way to get started is to quit talking and begin doing." – Walt Disney
+"Do one thing every day that scares you." – Eleanor Roosevelt
+"The best time to plant a tree was 20 years ago. The second best time is now." – Chinese Proverb
+"Your time is limited, so don’t waste it living someone else’s life." – Steve Jobs
+"It always seems impossible until it’s done." – Nelson Mandela
+"Hardships often prepare ordinary people for an extraordinary destiny." – C.S. Lewis
+"It does not matter how slowly you go as long as you do not stop." – Confucius
+"Believe you can and you're halfway there." – Theodore Roosevelt
+"Success is the sum of small efforts, repeated day in and day out." – Robert Collier
+"Don't wait. The time will never be just right." – Napoleon Hill
+"Start where you are. Use what you have. Do what you can." – Arthur Ashe
+"When one door of happiness closes, another opens." – Helen Keller
+"Act as if what you do makes a difference. It does." – William James
+"Success is not how high you have climbed, but how you make a positive difference to the world." – Roy T. Bennett
+"Don't watch the clock; do what it does. Keep going." – Sam Levenson
+"Success is not in what you have, but who you are." – Bo Bennett
+"Do what you can with all you have, wherever you are." – Theodore Roosevelt
+"Success is not for the chosen few, it’s for the few who choose it." – Unknown
+"The only limit to our realization of tomorrow is our doubts of today." – Franklin D. Roosevelt
+"The best way to predict the future is to create it." – Peter Drucker
+"The secret to getting ahead is getting started." – Mark Twain
+"Perseverance is not a long race; it is many short races one after the other." – Walter Elliot
+"Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle." – Christian D. Larson
+"Your dreams don’t work unless you do." – John C. Maxwell
+"The harder you work for something, the greater you’ll feel when you achieve it." – Unknown
+"The only way to achieve the impossible is to believe it is possible." – Charles Kingsleigh
+"Success doesn’t come from what you do occasionally, it comes from what you do consistently." – Marie Forleo
+"Success is the result of preparation, hard work, and learning from failure." – Colin Powell
+"Success is not the key to happiness. Happiness is the key to success." – Albert Schweitzer
+"I find that the harder I work, the more luck I seem to have." – Thomas Jefferson
+"The road to success is always under construction." – Lily Tomlin
+"If you’re going through hell, keep going." – Winston Churchill
+"You don’t have to be great to start, but you have to start to be great." – Les Brown
+"A journey of a thousand miles begins with a single step." – Lao Tzu
+"Success is the sum of small efforts, repeated day in and day out." – Robert Collier
+"Don’t be afraid to give up the good to go for the great." – John D. Rockefeller
+"The way to get started is to quit talking and begin doing." – Walt Disney
+"Success is how high you bounce when you hit bottom." – George S. Patton
+"Success is not in what you have, but who you are." – Bo Bennett
+"Do one thing every day that scares you." – Eleanor Roosevelt
+"Strive not to be a success, but rather to be of value." – Albert Einstein
+"You don’t have to be great to get started, but you have to get started to be great." – Les Brown
+"Success is how high you bounce when you hit bottom." – George S. Patton
+"Success is the result of preparation, hard work, and learning from failure." – Colin Powell
+"Hard work beats talent when talent doesn’t work hard." – Tim Notke
+"The harder you work, the luckier you get." – Gary Player
+"What you get by achieving your goals is not as important as what you become by achieving your goals." – Zig Ziglar
+"Dream big. Start small. Act now." – Robin Sharma
+"Success is the result of preparation, hard work, and learning from failure." – Colin Powell
+"Success is not final, failure is not fatal: It is the courage to continue that counts." – Winston Churchill
+"Do what you love, and you’ll never work a day in your life." – Confucius
+"Success is not the key to happiness. Happiness is the key to success." – Albert Schweitzer
+"Success is not for the chosen few, it’s for the few who choose it." – Unknown
+"Do what you can with all you have, wherever you are." – Theodore Roosevelt
+"There are no shortcuts to any place worth going." – Beverly Sills
+"Success is how high you bounce when you hit bottom." – George S. Patton
+"The secret of getting ahead is getting started." – Mark Twain
+"Success is the sum of small efforts, repeated day in and day out." – Robert Collier
+"It’s not whether you get knocked down, it’s whether you get up." – Vince Lombardi
+"Everything you’ve ever wanted is on the other side of fear." – George Addair
+"The way to get started is to quit talking and begin doing." – Walt Disney
+"The harder you work, the luckier you get." – Gary Player
+"Dream big. Start small. Act now." – Robin Sharma
+"The best way to predict the future is to create it." – Peter Drucker
+"Success consists of going from failure to failure without loss of enthusiasm." – Winston Churchill
+"Success is the result of preparation, hard work, and learning from failure." – Colin Powell
+"Nothing in the world can take the place of Persistence." – Calvin Coolidge
+"Your limitation—it’s only your imagination." – Unknown
+"Push yourself, because no one else is going to do it for you." – Unknown
+"Success is not the key to happiness. Happiness is the key to success." – Albert Schweitzer
+"The way to get started is to quit talking and begin doing." – Walt Disney
+"If you can dream it, you can do it." – Walt Disney
+"Success is not in what you have, but who you are." – Bo Bennett
